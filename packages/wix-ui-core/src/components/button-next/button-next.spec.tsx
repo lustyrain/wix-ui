@@ -107,4 +107,26 @@ describe('ButtonNext', () => {
       });
     });
   });
+
+  describe('driver', () => {
+    describe('isButtonDisabled', () => {
+      fit('should NOT be disabled by default', async() => {
+        const driver = createDriver(<ButtonNext />);
+        expect(await driver.isButtonDisabled()).toBeFalsy();
+      });
+
+      fit('should be disabled when disabled is passed', async() => {
+        const driver = createDriver(<ButtonNext disabled />);
+        
+        expect(await driver.isButtonDisabled()).toBeTruthy();
+      });
+
+      it('should be disabled when href is provided', async() => {
+        const driver = createDriver(<ButtonNext as="a" disabled href="wix" />);
+        expect(await driver.isButtonDisabled()).toBeTruthy();
+      });
+    })
+    
+  })
+  
 });
