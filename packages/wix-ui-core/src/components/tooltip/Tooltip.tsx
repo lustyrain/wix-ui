@@ -59,6 +59,8 @@ export class Tooltip extends React.PureComponent<TooltipProps, TooltipState> {
     onHide: () => ({}),
     timeout: 150,
     showArrow: true,
+    showDelay: 0,
+    hideDelay: 0,
   };
 
   state = { isOpen: false };
